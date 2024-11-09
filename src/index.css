@@ -135,12 +135,6 @@ body {
   font-size: var(--font-btn);
   text-align: center;
 }
-.tip-selection-btn:hover,
-.reset-btn-full:hover {
-  background-color: var(--color-light-grayish-cyan);
-  color: var(--color-dark-cyan);
-  cursor: pointer;
-}
 
 .btn-selected {
   background-color: var(--color-strong-cyan);
@@ -275,5 +269,11 @@ h5 {
   }
   .reset-btn {
     margin-top: 12rem;
+  }
+  .tip-selection-btn:hover,
+  .reset-btn-full:hover {
+    background-color: var(--color-light-grayish-cyan);
+    color: var(--color-dark-cyan);
+    cursor: pointer;
   }
 }
