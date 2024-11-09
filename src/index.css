@@ -1,13 +1,279 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* colors */
+  --color-strong-cyan: hsl(172, 67%, 45%);
+  --color-dark-cyan: hsl(183, 100%, 15%);
+  --color-dark-grayish-cyan: hsl(186, 14%, 43%);
+  --color-grayish-cyan: hsl(184, 14%, 56%);
+  --color-light-grayish-cyan: hsl(185, 41%, 84%);
+  --color-veryLight-grayish-cyan: hsl(189, 41%, 97%);
+  --color-icons: hsl(184, 19%, 68%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-red: hsl(0, 80%, 59%);
+  /* font-size */
+  --font-form-inputs: 2.4rem;
+  --font-label: 1.6rem;
+  --font-btn: 2rem;
+  --font-h5: 1.2rem;
+  --font-subtitle: 1.4rem;
+}
+@font-face {
+  font-family: "SpaceMono";
+  src: url(../public/fonts/SpaceMono-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+body,
+input,
+.btn {
+  font-family: "SpaceMono";
+}
+body {
+  background-color: var(--color-light-grayish-cyan);
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18%;
+}
+.tip-calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-white);
+  height: 82%;
+  border-top-left-radius: 2.5rem;
+  border-top-right-radius: 2.5rem;
+}
+
+/* bill info part */
+.bill-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+  align-items: center;
+}
+
+.bill-input,
+.people-num-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.bill-input label,
+.people-num-input label {
+  margin-bottom: 0.5rem;
+  font-size: var(--font-label);
+}
+.bill-input img,
+.people-num-input img {
+  position: absolute;
+  padding-left: 2rem;
+  padding-top: 1.5rem;
+}
+.bill-input input,
+.people-num-input input {
+  height: 4.5rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.5rem;
+  font-size: var(--font-form-inputs);
+  color: var(--color-dark-cyan);
+  text-align: right;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+.bill-input input::placeholder,
+.people-num-input input::placeholder {
+  text-align: right;
+  color: var(--color-icons);
+  font-size: 1.8rem;
+}
+.tip {
+  display: flex;
+  flex-direction: column;
+}
+.tip label {
+  margin-bottom: 0.8rem;
+  font-size: var(--font-label);
+}
+.select-tip {
+  display: grid;
+  grid-template-columns: 15rem 15rem;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.select-tip input {
+  border: 0.2rem solid transparent;
+  border-radius: 0.5rem;
+  font-size: var(--font-form-inputs);
+  text-align: center;
+  color: var(--color-dark-cyan);
+  cursor: pointer;
+}
+
+.tip-selection-btn {
+  background-color: var(--color-dark-cyan);
+  color: var(--color-white);
+  border: none;
+  width: 15rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  font-size: var(--font-btn);
+  text-align: center;
+}
+.tip-selection-btn:hover,
+.reset-btn-full:hover {
+  background-color: var(--color-light-grayish-cyan);
+  color: var(--color-dark-cyan);
+  cursor: pointer;
+}
+
+.btn-selected {
+  background-color: var(--color-strong-cyan);
+  color: var(--color-dark-cyan);
+}
+.darkGrayish-cyan {
+  color: var(--color-dark-grayish-cyan);
+}
+.veryLight-cyan {
+  background-color: var(--color-veryLight-grayish-cyan);
+}
+input:focus {
+  border-color: var(--color-strong-cyan);
+  outline: none;
+}
+input.error:focus {
+  border-color: var(--color-red);
+  outline: none;
+}
+.label-error {
+  display: flex;
+  flex-direction: row;
+}
+.error-message {
+  font-size: var(--font-label);
+  color: var(--color-red);
+  margin-left: 4rem;
+}
+
+/* result split part */
+
+.split-result {
+  background-color: var(--color-dark-cyan);
+  width: 32rem;
+  height: 25rem;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  padding-top: 4rem;
+  margin-top: 2rem;
+}
+.split-result .result-tip-amount,
+.split-result .result-total {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.split-result .result-tip-amount p,
+.split-result .result-total p {
+  font-size: var(--font-form-inputs);
+  color: var(--color-strong-cyan);
+}
+.split-result .result-tip-amount {
+  margin-bottom: 3rem;
+}
+h3 {
+  color: var(--color-white);
+  font-size: var(--font-subtitle);
+}
+h5 {
+  color: var(--color-grayish-cyan);
+  font-size: var(--font-h5);
+}
+.reset-btn {
+  width: 100%;
+  height: 4rem;
+  border: none;
+  margin-top: 4rem;
+  border-radius: 0.5rem;
+}
+.reset-btn-empty {
+  color: var(--color-dark-cyan);
+  background-color: hsl(172, 67%, 45%, 0.2);
+}
+.reset-btn-full {
+  background-color: var(--color-strong-cyan);
+  color: var(--color-dark-cyan);
+}
+
+/* desktop */
+@media (min-width: 769px) {
+  .logo {
+    height: 15%;
+    align-items: baseline;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .tip-calculator {
+    height: 45rem;
+    width: 85rem;
+    border-radius: 2.5rem;
+    flex-direction: row;
+    padding: 0rem 2rem;
+  }
+  .bill-info {
+    align-items: baseline;
+    width: 50%;
+    margin-left: 2rem;
+  }
+  .bill-input,
+  .people-num-input {
+    width: 90%;
+  }
+  .tip {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .select-tip {
+    grid-template-columns: 11rem 11rem 11rem;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem 1.5rem;
+  }
+  .tip-selection-btn {
+    width: 11rem;
+    height: 4.5rem;
+  }
+  .split-result {
+    height: 40rem;
+    width: 38rem;
+    margin-top: 0.5rem;
+    padding: 5rem 4rem;
+  }
+  .split-result .result-tip-amount,
+  .split-result .result-total {
+    margin-bottom: 4rem;
+  }
+  .reset-btn {
+    margin-top: 12rem;
+  }
 }
