@@ -1,3 +1,2 @@
 # Tip-Calculator
-
-<!-- > > > > > > > e07cb79461fcaf280e4598d2114e6e326e27602f -->
+This is a junior front-end mentor challenge which I have implemented using React.js library and CSS with responsive design. 
