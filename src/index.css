@@ -35,10 +35,11 @@ input,
 .btn {
   font-family: "SpaceMono";
 }
-body {
+/* body {
   background-color: var(--color-light-grayish-cyan);
-}
+} */
 .container {
+  background-color: var(--color-light-grayish-cyan);
   height: 100vh;
   width: 100vw;
 }
